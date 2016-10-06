@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">JavaQuizApp</string>
+    <string name="question_not_done">question not done</string>
+</resources>
