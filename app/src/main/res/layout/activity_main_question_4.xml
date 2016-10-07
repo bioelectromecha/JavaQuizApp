@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--outer layout tag is required for the databinding library -->
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/question_4_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/AppTheme.Question"
+            android:text="@string/question_4"
+            />
+
+        <EditText
+            android:id="@+id/question_4_answer_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/question_edittext_hint"/>
+        <!--//abstract-->
+
+    </LinearLayout>
+</layout>

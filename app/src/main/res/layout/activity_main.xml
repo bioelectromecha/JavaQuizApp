@@ -1,81 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!--the outer <layout> tag is for the android databinding library -->
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        tools:context="roman.com.javaquizapp.MainActivity">
+<!--outer layout tag is required for the databinding library -->
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="6">
-
-            <ImageView
-                android:id="@+id/question_1_status_indicator"
-                style="@style/AppTheme.QuestionStatusIndicator"
-                />
-
-            <ImageView
-                android:id="@+id/question_2_status_indicator"
-                style="@style/AppTheme.QuestionStatusIndicator"
-                />
-
-            <ImageView
-                android:id="@+id/question_3_status_indicator"
-                style="@style/AppTheme.QuestionStatusIndicator"
-                />
-
-            <ImageView
-                android:id="@+id/question_4_status_indicator"
-                style="@style/AppTheme.QuestionStatusIndicator"
-                />
-
-            <ImageView
-                android:id="@+id/question_5_status_indicator"
-                style="@style/AppTheme.QuestionStatusIndicator"
-                />
-
-            <ImageView
-                android:id="@+id/question_6_status_indicator"
-                style="@style/AppTheme.QuestionStatusIndicator"
-                />
-
-        </LinearLayout>
-
-    </android.support.v7.widget.Toolbar>
-
-    <ScrollView
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:fitsSystemWindows="true"
+        tools:context="roman.com.javaquizapp.MainActivity">
 
-        <LinearLayout
+
+        <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="@dimen/appbar_height"
+            android:background="@color/colorPrimary"
+            android:elevation="@dimen/single_standard_elevation"
+            >
 
-            <TextView
-                android:id="@+id/question_1_title"
-                style="@style/AppTheme.QuestionTitle"
-                android:text="Question 1"
-                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        </LinearLayout>
+                <TextView
+                    style="@style/AppTheme.AppBarTitle"
+                    android:text="@string/app_name"
+                    />
+
+                <LinearLayout
+                    style="@style/AppTheme.QuestionIndicatorLayout"
+                    >
+
+                    <ImageView
+                        android:id="@+id/question_1_status_indicator"
+                        style="@style/AppTheme.QuestionStatusIndicator"
+                        android:src="@drawable/question_done"
+                        />
+
+                    <ImageView
+                        android:id="@+id/question_2_status_indicator"
+                        style="@style/AppTheme.QuestionStatusIndicator"
+                        />
+
+                    <ImageView
+                        android:id="@+id/question_3_status_indicator"
+                        style="@style/AppTheme.QuestionStatusIndicator"
+                        />
+
+                    <ImageView
+                        android:id="@+id/question_4_status_indicator"
+                        style="@style/AppTheme.QuestionStatusIndicator"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+        <include
+            android:id="@+id/activty_main_included_content"
+            layout="@layout/activity_main_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
 
-    </ScrollView>
-
-    </LinearLayout>
-
+    </android.support.design.widget.CoordinatorLayout>
 </layout>

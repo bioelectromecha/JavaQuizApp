@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -14,6 +14,25 @@
     </style>
 
 
+    <style name="AppTheme.AppBarTitle" parent="AppTheme">
+        <item name="android:layout_marginTop">@dimen/half_standard_margin</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:textSize">@dimen/small_text_size</item>
+        <item name="android:layout_gravity">start</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
+    <style name="AppTheme.QuestionIndicatorLayout" parent="AppTheme">
+        <item name="android:layout_marginTop">@dimen/single_standard_margin</item>
+        <item name="android:layout_marginBottom">@dimen/half_standard_margin</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
     <style name="AppTheme.QuestionStatusIndicator" parent="AppTheme">
         <item name="android:tint">@color/textColorPrimary</item>
         <item name="android:layout_width">0dp</item>
@@ -23,12 +42,28 @@
         <item name="android:contentDescription">@string/question_not_done</item>
     </style>
 
-    <style name="AppTheme.QuestionTitle" parent="AppTheme">
+    <style name="AppTheme.Question" parent="AppTheme">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/single_standard_margin</item>
+        <item name="android:layout_marginBottom">@dimen/single_standard_margin</item>
         <item name="android:tint">@color/textColorSecondary</item>
-        <item name="android:textSize">@dimen/large_text_size</item>
+        <item name="android:textSize">@dimen/small_text_size</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
     </style>
 
+    <style name="AppTheme.RadioButton" parent="AppTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">start</item>
+    </style>
+
+    <style name="AppTheme.CheckBox" parent="AppTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">start</item>
+        <item name="android:gravity">start</item>
+    </style>
 
 </resources>

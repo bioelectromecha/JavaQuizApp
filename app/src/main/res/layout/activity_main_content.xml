@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--outer layout tag is required for the databinding library -->
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/appbar_height"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/single_standard_margin"
+            android:paddingBottom="@dimen/double_standard_margin"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/question_1_include_content"
+                layout="@layout/activity_main_question_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+            <include
+                android:id="@+id/question_2_include_content"
+                layout="@layout/activity_main_question_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <include
+                android:id="@+id/question_3_include_content"
+                layout="@layout/activity_main_question_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
+
+            <include
+                android:id="@+id/question_4_include_content"
+                layout="@layout/activity_main_question_4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
+
+
+            <Button
+                android:id="@+id/check_button"
+                style="@style/AppTheme.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@string/button_check"
+                android:onClick="onCheckButtonClicked"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

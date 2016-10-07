@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--outer layout tag is required for the databinding library -->
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/question_2_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            style="@style/AppTheme.Question"
+            android:text="@string/question_2"
+            />
+
+        <android.support.v7.widget.AppCompatCheckBox
+            style="@style/AppTheme.CheckBox"
+            android:text="@string/question_2_answer_1"
+            />
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/question2_correct_answer_1"
+            style="@style/AppTheme.CheckBox"
+            android:text="@string/question_2_answer_2"
+            />
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/question2_correct_answer_2"
+            style="@style/AppTheme.CheckBox"
+            android:text="@string/question_2_answer_3"
+            />
+
+        <android.support.v7.widget.AppCompatCheckBox
+            style="@style/AppTheme.CheckBox"
+            android:text="@string/question_2_answer_4"
+            />
+
+    </LinearLayout>
+</layout>

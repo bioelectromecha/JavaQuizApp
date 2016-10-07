@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--outer layout tag is required for the databinding library -->
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/question_1_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/AppTheme.Question"
+            android:text="@string/question_1"
+            />
+
+
+        <RadioGroup
+            android:id="@+id/radio_button_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            >
+
+            <RadioButton
+                style="@style/AppTheme.RadioButton"
+                android:text="@string/question_1_answer_1"
+                />
+
+            <RadioButton
+                style="@style/AppTheme.RadioButton"
+                android:text="@string/question_1_answer_2"
+                />
+
+            <RadioButton
+                style="@style/AppTheme.RadioButton"
+                android:text="@string/question_1_answer_3"
+                />
+
+            <RadioButton
+                android:id="@+id/question_1_correct_answer_button"
+                style="@style/AppTheme.RadioButton"
+                android:text="@string/question_1_answer_4"
+                />
+        </RadioGroup>
+
+
+    </LinearLayout>
+</layout>

@@ -1,15 +1,18 @@
 <resources>
 
     <!--margins-->
+    <dimen name="half_standard_margin">8dp</dimen>
     <dimen name="single_standard_margin">16dp</dimen>
     <dimen name="double_standard_margin">32dp</dimen>
     <dimen name="quadruple_standard_margin">64dp</dimen>
+    <dimen name="appbar_height">96dp</dimen>
 
 
     <!--text sizes-->
     <dimen name="large_text_size">40sp</dimen>
     <dimen name="medium_text_size">32sp</dimen>
-    <dimen name="small_text_size">16sp</dimen>
+    <dimen name="small_text_size">24sp</dimen>
+    <dimen name="extra_small_text_size">16sp</dimen>
 
     <!--elevations-->
     <dimen name="single_standard_elevation">4dp</dimen>
