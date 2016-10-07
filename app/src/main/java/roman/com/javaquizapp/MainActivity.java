@@ -57,6 +57,39 @@ public class MainActivity extends AppCompatActivity {
         mCurrentQuestion = Question.QUESTION1;
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("quizScore", mQuizScore);
+        outState.putBoolean("isDone", mIsDone);
+        outState.putBoolean("isButtonChecked", mIsButtonInCheckMode);
+        outState.putInt("currentQuestion", mCurrentQuestion.ordinal());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mQuizScore = savedInstanceState.getInt("quizScore");
+        mIsDone = savedInstanceState.getBoolean("isDone");
+        mIsButtonInCheckMode = savedInstanceState.getBoolean("isButtonChecked");
+        mCurrentQuestion = Question.values()[savedInstanceState.getInt("currentQuestion")];
+
+        //restore the view in accordance with current question
+        switch (mCurrentQuestion) {
+            case QUESTION1:
+                //do nothing
+                break;
+            case QUESTION2:
+                goToQuestion2();
+                break;
+            case QUESTION3:
+                goToQuestion3();
+                break;
+            case QUESTION4:
+                goToQuestion4();
+                break;
+        }
+    }
 
     /**
      * onClick Method for the check/continue button
@@ -104,26 +137,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     /**
      * hide the previous question and show the current one
      */
     private void goToNextQuestion() {
         switch (mCurrentQuestion) {
             case QUESTION1:
-                mBinding.activtyMainIncludedContent.question1IncludeContent.question1Layout.setVisibility(View.GONE);
-                mBinding.activtyMainIncludedContent.question2IncludeContent.question2Layout.setVisibility(View.VISIBLE);
-                mBinding.question2StatusIndicator.setImageDrawable(getDrawable(R.drawable.question_done));
+                goToQuestion2();
                 break;
             case QUESTION2:
-                mBinding.activtyMainIncludedContent.question2IncludeContent.question2Layout.setVisibility(View.GONE);
-                mBinding.activtyMainIncludedContent.question3IncludeContent.question3Layout.setVisibility(View.VISIBLE);
-                mBinding.question3StatusIndicator.setImageDrawable(getDrawable(R.drawable.question_done));
+                goToQuestion3();
                 break;
             case QUESTION3:
-                mBinding.activtyMainIncludedContent.question3IncludeContent.question3Layout.setVisibility(View.GONE);
-                mBinding.activtyMainIncludedContent.question4IncludeContent.question4Layout.setVisibility(View.VISIBLE);
-                mBinding.question4StatusIndicator.setImageDrawable(getDrawable(R.drawable.question_done));
+                goToQuestion4();
                 break;
             case QUESTION4:
                 // do ..... ?
@@ -132,6 +158,33 @@ public class MainActivity extends AppCompatActivity {
         mCurrentQuestion = mCurrentQuestion.getNext();
     }
 
+
+    private void goToQuestion2() {
+        mBinding.activtyMainIncludedContent.question1IncludeContent.question1Layout.setVisibility(View.GONE);
+        mBinding.activtyMainIncludedContent.question2IncludeContent.question2Layout.setVisibility(View.VISIBLE);
+        mBinding.question1StatusIndicator.setImageDrawable(getDrawable(R.drawable.question_done));
+        mBinding.question2StatusIndicator.setImageDrawable(getDrawable(R.drawable.question_done));
+    }
+
+    private void goToQuestion3() {
+        mBinding.activtyMainIncludedContent.question1IncludeContent.question1Layout.setVisibility(View.GONE);
+        mBinding.activtyMainIncludedContent.question2IncludeContent.question2Layout.setVisibility(View.GONE);
+        mBinding.activtyMainIncludedContent.question3IncludeContent.question3Layout.setVisibility(View.VISIBLE);
+        mBinding.question1StatusIndicator.setImageDrawable(getDrawable(R.drawable.question_done));
+        mBinding.question2StatusIndicator.setImageDrawable(getDrawable(R.drawable.question_done));
+        mBinding.question3StatusIndicator.setImageDrawable(getDrawable(R.drawable.question_done));
+    }
+
+    private void goToQuestion4() {
+        mBinding.activtyMainIncludedContent.question1IncludeContent.question1Layout.setVisibility(View.GONE);
+        mBinding.activtyMainIncludedContent.question2IncludeContent.question2Layout.setVisibility(View.GONE);
+        mBinding.activtyMainIncludedContent.question3IncludeContent.question3Layout.setVisibility(View.GONE);
+        mBinding.activtyMainIncludedContent.question4IncludeContent.question4Layout.setVisibility(View.VISIBLE);
+        mBinding.question1StatusIndicator.setImageDrawable(getDrawable(R.drawable.question_done));
+        mBinding.question2StatusIndicator.setImageDrawable(getDrawable(R.drawable.question_done));
+        mBinding.question3StatusIndicator.setImageDrawable(getDrawable(R.drawable.question_done));
+        mBinding.question4StatusIndicator.setImageDrawable(getDrawable(R.drawable.question_done));
+    }
 
     /**
      * logic for getting users answer and deciding if correct or not
@@ -153,7 +206,9 @@ public class MainActivity extends AppCompatActivity {
     private void handleQuestion2() {
         //check if it's the correct answer
         if (mBinding.activtyMainIncludedContent.question2IncludeContent.question2CorrectAnswer1.isChecked()
-                && mBinding.activtyMainIncludedContent.question2IncludeContent.question2CorrectAnswer2.isChecked()) {
+                && mBinding.activtyMainIncludedContent.question2IncludeContent.question2CorrectAnswer2.isChecked()
+                && !mBinding.activtyMainIncludedContent.question2IncludeContent.question2IncorrectAnswer1.isChecked()
+                && !mBinding.activtyMainIncludedContent.question2IncludeContent.question2IncorrectAnswer1.isChecked()) {
             showCorrectToast();
             mQuizScore++;
         } else {
@@ -195,7 +250,6 @@ public class MainActivity extends AppCompatActivity {
     private void showCorrectToast() {
         Toast.makeText(this, "CORRECT!", Toast.LENGTH_LONG).show();
     }
-
 
     /**
      * show a toast telling the user he/she were incorrect

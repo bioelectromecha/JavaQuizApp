@@ -17,6 +17,7 @@
             />
 
         <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/question2_incorrect_answer_1"
             style="@style/AppTheme.CheckBox"
             android:text="@string/question_2_answer_1"
             />
@@ -34,6 +35,7 @@
             />
 
         <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/question2_incorrect_answer_2"
             style="@style/AppTheme.CheckBox"
             android:text="@string/question_2_answer_4"
             />
